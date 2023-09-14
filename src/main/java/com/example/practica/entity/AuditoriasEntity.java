@@ -1,16 +1,20 @@
 package com.example.practica.entity;
 
+import com.example.practica.enums.Estado;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "auditoria")
 public class AuditoriasEntity {
 
     @Id
@@ -24,5 +28,8 @@ public class AuditoriasEntity {
     @Column(name = "fecha_de_inicio")
     private  Date fechaDeInicio;
     @Column(name = "fecha_de_finalizacion")
-    private Date fechaDeFinalizacion;
+    private LocalDateTime fechaDeFinalizacion;
+
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
 }
